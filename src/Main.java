@@ -42,10 +42,10 @@ public class Main {
         //       System.out.println("Рождаемость " + fertilityInYear);
         int mortalityInYear = 8;
         //       System.out.println("Смертность " + mortalityInYear);
-        int totalPeoleInYear = ((1000+fertilityInYear)-mortalityInYear);
-//        System.out.println("Население в год " + totalPeoleInYear);
         int c = 2022;
         while (c<=2032){
+            int totalPeoleInYear = (y/1000)*17-(y/1000)*8;
+//            System.out.println("Население в год " + totalPeoleInYear);
             y = y+totalPeoleInYear;
             //           System.out.println(y);
             System.out.println("Год " + c + " численность населения составляет " + y );
@@ -80,11 +80,38 @@ public class Main {
         System.out.println(" ");
         System.out.println("//task4");
         //task4
-        int fulldayInMounth = 31;
+        int fullDayInMonth = 31;
         int friday = 2;
-        for (int f=2;f<fulldayInMounth;f = f+7){
+        for (int f=2;f<fullDayInMonth;f = f+7){
                 System.out.println(" Сегодня пятница " + f + " число. Необходимо подготовить отчет.");
         }
+        System.out.println(" ");
+        System.out.println("//Homework 7.3");
+        System.out.println("//task1");
+        //task1
+        int cometFlightStartYear= 1822;
+        int cometFlightAfterYear = 2122;
+        for (int z = 2022; z>cometFlightStartYear; z--){
+            if (z%79==0){
+                System.out.println("Комета пролетала над Землей в " + z + " году");
+            }
+        }
+        for (int k = 2022; k<cometFlightAfterYear; k++){
+            if (k%79==0){
+                System.out.println("В следующий раз комета пролетит над Землей в " + k + " году");
+            }
+        }
+        System.out.println(" ");
+        System.out.println("//task2");
+        //task2
+        for (int u = 2; u < 3; u++){
+            for(int w = 1; w<= 10; w++)
+                System.out.println(u+"*"+w+"="+u*w);
+        }
+
+
+
+
 
 
 
