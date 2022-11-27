@@ -88,7 +88,7 @@ public class Main {
             for (int day=firstFriday;day<=31;day+=7){
                 System.out.println(" Сегодня пятница %s  чисчло, необходимо подготовить отчет\n"+ day );
             }
-        }
+        } else System.out.println("Введите корректное число");
         scanner.close();
 
 
