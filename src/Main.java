@@ -1,26 +1,28 @@
+import java.util.Scanner;
+import java.time.LocalDate;
+
 public class Main {
     public static void main(String[] args) {
         System.out.println(" ");
-        System.out.println("//Homework 7.1");
+        System.out.println("Homework 7.1");
         System.out.println("//task1");
 
-        int moneyboxInMounth = 15000;
-        int totalMoneyInMounth ;
-        int totalMoney= 2459000;
-        int totalMoney2 = 0;
-        int i = 1;
-        while (totalMoney2<totalMoney) {
-            totalMoneyInMounth = moneyboxInMounth/100;
-            totalMoneyInMounth = totalMoneyInMounth+moneyboxInMounth;
-            //           totalMoney2 = totalMoney*12;
-            totalMoney2 = totalMoney2+totalMoneyInMounth;
-            System.out.println("Месяц " +  i + " сумма накоплений равна " + totalMoney2 + " рублей");
-            i++;
+        int moneyboxInMounth = 15_000;
+        int totalMoney= 2_459_000;
+        int saveMoney = 0;
+        int numberMonth = 1;
+        double percent = 0.12;
+        while (saveMoney<totalMoney) {
+            saveMoney+=moneyboxInMounth;
+            if (numberMonth%12==0){
+                saveMoney+=saveMoney*percent;
+            }
+            System.out.println("Месяц " +  numberMonth + " сумма накоплений равна " + saveMoney + " рублей");
+            numberMonth++;
         }
-        System.out.println("Всего месяцев " + i);
+        System.out.println("Всего месяцев " + numberMonth);
 
-        //       System.out.println("За  накоплений под 12% годовых скопилось вего " + totalMoney2 + " рублей" );
-        System.out.println(" ");
+        System.out.println("Homework 7.1 ");
         System.out.println("//task2");
         System.out.println(" ");
         //task2
@@ -33,75 +35,98 @@ public class Main {
         for (b= 10; b>0; b--){
             System.out.print(b + " ");
         }
-        System.out.println(" ");
+        System.out.println("Homework 7.1");
         System.out.println("//task3");
         System.out.println(" ");
         //task3
-        int y = 12_000_000;
-        int fertilityInYear= 17;
-        //       System.out.println("Рождаемость " + fertilityInYear);
-        int mortalityInYear = 8;
-        //       System.out.println("Смертность " + mortalityInYear);
-        int c = 2022;
-        while (c<=2032){
-            int totalPeoleInYear = (y/1000)*17-(y/1000)*8;
-//            System.out.println("Население в год " + totalPeoleInYear);
-            y = y+totalPeoleInYear;
-            //           System.out.println(y);
-            System.out.println("Год " + c + " численность населения составляет " + y );
-            c++;
+        int population = 12_000_000;
+        int fertilityInYearBy1000= 17;
+        int mortalityInYearBy1000 = 8;
+        int increase = fertilityInYearBy1000-mortalityInYearBy1000;
+        for (int year = 1; year<=10;year++){
+            population+=population*increase/1000;
+            System.out.println("Год " + year + " численность населения составляет " + population );
         }
+
+
         System.out.println(" ");
-        System.out.println("//Homework 7.2");
+        System.out.println("Homework 7.2");
         System.out.println("//task1,2");
         //task1,2
         int startContribution = 15_000;
         int fullContribution = 12_000_000;
-        int m = 1;
-        for ( ; startContribution <= fullContribution; m++){
-            startContribution = startContribution + ((startContribution/100)*7);
-            if (m%6==0){
-                System.out.println("Месяц " + m + " накопления " + startContribution);
+        int month= 1;
+        double percent2 = 0.07;
+        for ( ; startContribution <= fullContribution; month++){
+            startContribution += startContribution * percent2;
+            if (month%6==0){
+                System.out.println("Месяц " + month + " накопления " + startContribution);
             }
         }
-        System.out.println("Потребуется " + m + " месяцев,чтобы накопить " + startContribution);
-        System.out.println(" ");
+        System.out.println("Потребуется " + month + " месяцев,чтобы накопить " + startContribution);
+        System.out.println("Homework 7.2 ");
         System.out.println("//task3");
         //task3
         int vasiliiMoney = 15_000;
         int vasiliiYears = 9;
-        for (int v = 0;v < vasiliiYears ; v++){
-            vasiliiMoney = vasiliiMoney+((vasiliiMoney/100)*7);
-            vasiliiYears = 9*12;
-            if (v%6==0){
-                System.out.println("Месяц " + v + " накопления " + vasiliiMoney);
+        double percent3 = 0.07;
+        int month1 = 1;
+        for (;month1 <= vasiliiYears*12 ; month1++){
+            vasiliiMoney += vasiliiMoney*percent3;
+            if (month1%6==0){
+                System.out.println("Месяц " + month1 + " накопления " + vasiliiMoney);
             }
         }
-        System.out.println(" ");
+
+        System.out.println("Homework 7.2 ");
         System.out.println("//task4");
         //task4
-        int fullDayInMonth = 31;
-        int friday = 2;
-        for (int f=2;f<fullDayInMonth;f = f+7){
-                System.out.println(" Сегодня пятница " + f + " число. Необходимо подготовить отчет.");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введи число: ");
+        int firstFriday = scanner.nextInt();
+        if(firstFriday>0 && firstFriday<=7){
+            for (int day=firstFriday;day<=31;day+=7){
+                System.out.println(" Сегодня пятница %s  чисчло, необходимо подготовить отчет\n"+ day );
+            }
         }
+        scanner.close();
+
+
+
         System.out.println(" ");
-        System.out.println("//Homework 7.3");
+        System.out.println("Homework 7.3");
         System.out.println("//task1");
         //task1
         int cometFlightStartYear= 1822;
         int cometFlightAfterYear = 2122;
-        for (int z = 2022; z>cometFlightStartYear; z--){
-            if (z%79==0){
-                System.out.println("Комета пролетала над Землей в " + z + " году");
+        int year1 = 2022;
+        for (; year1>cometFlightStartYear; year1--){
+            if (year1%79==0){
+                System.out.println("Комета пролетала над Землей в " + year1 + " году");
             }
         }
-        for (int k = 2022; k<cometFlightAfterYear; k++){
-            if (k%79==0){
-                System.out.println("В следующий раз комета пролетит над Землей в " + k + " году");
+        for (int year2 = 2022; year2<cometFlightAfterYear; year2++){
+            if (year2%79==0){
+                System.out.println("В следующий раз комета пролетит над Землей в " + year2 + " году");
             }
         }
-        System.out.println(" ");
+        System.out.println("Homework 7.3");
+        System.out.println("Task1, option 2");
+        int year = 0;
+        int nowYear = LocalDate.now().getYear();
+        int startYear = nowYear-200;
+        int finishYear = nowYear+100;
+        int period = 79;
+        while (year<=finishYear){
+            if(year>=startYear){
+                System.out.println(year);
+            }
+            year+=period;
+        }
+
+
+
+        System.out.println("Homework 7.3 ");
         System.out.println("//task2");
         //task2
         for (int u = 2; u < 3; u++){
